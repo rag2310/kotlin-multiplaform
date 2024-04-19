@@ -12,8 +12,8 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-import helloworld.composeapp.generated.resources.Res
-import helloworld.composeapp.generated.resources.compose_multiplatform
+import hello_world.composeapp.generated.resources.Res
+import hello_world.composeapp.generated.resources.compose_multiplatform
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable

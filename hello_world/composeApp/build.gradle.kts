@@ -15,6 +15,8 @@ kotlin {
         }
     }
     
+    jvm("desktop")
+    
     listOf(
         iosX64(),
         iosArm64(),
@@ -27,6 +29,7 @@ kotlin {
     }
     
     sourceSets {
+        val desktopMain by getting
         
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
@@ -39,6 +42,9 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+        }
+        desktopMain.dependencies {
+            implementation(compose.desktop.currentOs)
         }
     }
 }
@@ -77,3 +83,14 @@ android {
     }
 }
 
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "com.rago.helloworld"
+            packageVersion = "1.0.0"
+        }
+    }
+}
